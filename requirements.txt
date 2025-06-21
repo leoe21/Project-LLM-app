@@ -4,4 +4,8 @@ openai
 chromadb
 tiktoken
 langchain-community
+<<<<<<< HEAD
 protobuf==3.20.3
+=======
+protobuf==3.20.3
+>>>>>>> 9a0f3ee7b6b6c07fceb12847aa3dc95ecd6f94d6
