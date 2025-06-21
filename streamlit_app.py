@@ -5,8 +5,8 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains import RetrievalQA
 import os
 
-def generate_response(uploaded_file, openai_api_key, query_text):
-    openai_api_key = st.secrets("OPENAI_API_KEY")
+def generate_response(uploaded_file, query_text):
+    openai_api_key = st.secrets["OPENAI_API_KEY"]
     if uploaded_file is not None:
         try:
             documents = [uploaded_file.read().decode()]
@@ -42,7 +42,6 @@ with st.form('myform', clear_on_submit=True):
         with st.spinner('Calculating...'):
             response = generate_response(uploaded_file, query_text)
             result.append(response)
-            del openai_api_key
 
 if result:
     if result[0].startswith("❌"):
