@@ -4,6 +4,9 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
+# CAMBIO 1: Importa FAISS en lugar de Chroma
+from langchain.vectorstores import FAISS 
+
 
 def generate_response(uploaded_file, openai_api_key, query_text):
     # Load document if file is uploaded

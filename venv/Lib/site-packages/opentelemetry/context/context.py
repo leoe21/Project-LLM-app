@@ -12,11 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import annotations
-
 import typing
 from abc import ABC, abstractmethod
-from contextvars import Token
 
 
 class Context(typing.Dict[str, object]):
@@ -32,7 +29,7 @@ class _RuntimeContext(ABC):
     """
 
     @abstractmethod
-    def attach(self, context: Context) -> Token[Context]:
+    def attach(self, context: Context) -> object:
         """Sets the current `Context` object. Returns a
         token that can be used to reset to the previous `Context`.
 
@@ -45,7 +42,7 @@ class _RuntimeContext(ABC):
         """Returns the current `Context` object."""
 
     @abstractmethod
-    def detach(self, token: Token[Context]) -> None:
+    def detach(self, token: object) -> None:
         """Resets Context to a previous value
 
         Args:
