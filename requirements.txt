@@ -1,8 +1,21 @@
+# Streamlit para la interfaz web
 streamlit
+
+# OpenAI SDK
 openai
+
+# Tokenización (usado internamente por embeddings OpenAI)
 tiktoken
-langchain-community
-protobuf==3.20.3
-faiss-cpu
+
+# LangChain actualizada (core)
 langchain>=0.1.0
-chromadb>=0.4.22
+
+# Nuevas versiones separadas de langchain (post 0.1.0)
+langchain-community
+langchain-openai
+
+# Vector store FAISS (más simple para uso en la nube)
+faiss-cpu
+
+# Versión compatible de protobuf (evita errores de serialización)
+protobuf==3.20.3
