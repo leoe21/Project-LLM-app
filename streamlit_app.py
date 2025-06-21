@@ -3,8 +3,10 @@ from langchain_openai import OpenAIEmbeddings, OpenAI
 from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains import RetrievalQA
+import os
 
 def generate_response(uploaded_file, openai_api_key, query_text):
+    openai_api_key = os.getenv("OPENAI_API_KEY")
     if uploaded_file is not None:
         try:
             documents = [uploaded_file.read().decode()]
@@ -34,7 +36,7 @@ query_text = st.text_input('Enter your question:', placeholder='Please provide a
 
 result = []
 with st.form('myform', clear_on_submit=True):
-    openai_api_key = st.text_input('OpenAI API Key', type='password', disabled=not (uploaded_file and query_text))
+    #openai_api_key = st.text_input('OpenAI API Key', type='password', disabled=not (uploaded_file and query_text)) Lo pedia en el frontend
     submitted = st.form_submit_button('Submit', disabled=not(uploaded_file and query_text))
     if submitted and openai_api_key.startswith('sk-'):
         with st.spinner('Calculating...'):
