@@ -6,7 +6,7 @@ from langchain.chains import RetrievalQA
 import os
 
 def generate_response(uploaded_file, query_text):
-    openai_api_key = st.secrets["OPENAI_API_KEY"]
+    openai_api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY")
     if uploaded_file is not None:
         try:
             documents = [uploaded_file.read().decode()]
